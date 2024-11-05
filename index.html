@@ -16,15 +16,31 @@
         <!-- operations buttons -->
          <div class="buttonsdiv">
             <button onclick="push()">Push</button>
-            <button>Pop</button>
-            <button>Peek</button>
-            <button>Display</button>
+            <button onclick="pop()">Pop</button>
+            <button onclick="peek()">Peek</button>
+            <button onclick="display()">Display</button>
          </div>
     </section>
     <script>
+        var stack = [];
+
         function push() {
-            console.log("push");
-            
+            stack.push(1);
+            console.log(stack);
+        }
+        function pop() {
+            if (stack.length==0){
+                console.log("stack is empty");
+                return;
+            }
+            stack.pop();
+            console.log(stack);
+        }
+        function peek() {
+            console.log(stack[stack.length-1]);
+        }
+        function display() {
+            console.log(stack);
         }
     </script>
 </body>
