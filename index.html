@@ -14,15 +14,13 @@
 
 
         <!-- display stack -->
-         <center>
             <div class="stackdisplay">
-                stack
+                
             </div>
-         </center>
-        
+        <br>
         <!-- operations buttons -->
          <div class="buttonsdiv">
-            <button onclick="push()">Push</button>
+            <button onclick="push()"> <input type="number" id="num"> Push</button>
             <button onclick="pop()">Pop</button>
             <button onclick="peek()">Peek</button>
             <!-- <button onclick="display()">Display</button> -->
@@ -32,13 +30,14 @@
         var stack = [];
 
         function push() {
-            stack.push(1);
+            stack.push(document.getElementById("num").value);
             console.log(stack);
             stackdisplay();
         }
         function pop() {
             if (stack.length==0){
                 console.log("stack is empty");
+                alert("stack is empty");
                 return;
             }
             stack.pop();
@@ -48,7 +47,12 @@
         function peek() {
             console.log(stack[stack.length-1]);
             stackdisplay();
-            alert(stack[stack.length-1]);
+            if (stack.length==0){
+                console.log("stack is empty");
+                alert("stack is empty");
+                return;
+            }
+            alert("Value at top of stack is: "+stack[stack.length-1]);
         }
         // function display() {
         //     console.log(stack);
@@ -56,7 +60,7 @@
         // }
         function stackdisplay() {
   let stackElement = document.getElementsByClassName("stackdisplay")[0];
-  let stackContent = stack.map(item => `<div>${item}</div>`).join(''); // Create HTML for each item
+  let stackContent = stack.map(item => `<p>${item}</p>`).join(''); // Create HTML for each item
   stackElement.innerHTML = stackContent; // Update the stack display
 }
 
