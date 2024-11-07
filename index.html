@@ -20,7 +20,8 @@
         <br>
         <!-- operations buttons -->
          <div class="buttonsdiv">
-            <button onclick="push()"> <input type="number" id="num"> Push</button>
+            <input type="number" id="num" placeholder="enter variable to push on to stack">
+            <button onclick="push()">Push</button>
             <button onclick="pop()">Pop</button>
             <button onclick="peek()">Peek</button>
             <!-- <button onclick="display()">Display</button> -->
@@ -28,8 +29,14 @@
     </section>
     <script>
         var stack = [];
+        const n =5;
 
         function push() {
+            if (stack.length==n){
+                console.log("stack is full");
+                alert("stack is full");
+                return;
+            }
             stack.push(document.getElementById("num").value);
             console.log(stack);
             stackdisplay();
