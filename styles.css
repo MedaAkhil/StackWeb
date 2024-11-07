@@ -31,3 +31,9 @@ header{
     border-radius: 7px;
     cursor:grab ;
 }
+.stackdisplay{
+    color: black;
+    background-color: red;
+    width: 100%;
+    height: auto;
+}

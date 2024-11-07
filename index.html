@@ -12,13 +12,20 @@
     </header>
     <section class="stackSection">
 
+
+        <!-- display stack -->
+         <center>
+            <div class="stackdisplay">
+                stack
+            </div>
+         </center>
         
         <!-- operations buttons -->
          <div class="buttonsdiv">
             <button onclick="push()">Push</button>
             <button onclick="pop()">Pop</button>
             <button onclick="peek()">Peek</button>
-            <button onclick="display()">Display</button>
+            <!-- <button onclick="display()">Display</button> -->
          </div>
     </section>
     <script>
@@ -27,6 +34,7 @@
         function push() {
             stack.push(1);
             console.log(stack);
+            stackdisplay();
         }
         function pop() {
             if (stack.length==0){
@@ -35,13 +43,23 @@
             }
             stack.pop();
             console.log(stack);
+            stackdisplay();
         }
         function peek() {
             console.log(stack[stack.length-1]);
+            stackdisplay();
+            alert(stack[stack.length-1]);
         }
-        function display() {
-            console.log(stack);
-        }
+        // function display() {
+        //     console.log(stack);
+        //     stackdisplay();
+        // }
+        function stackdisplay() {
+  let stackElement = document.getElementsByClassName("stackdisplay")[0];
+  let stackContent = stack.map(item => `<div>${item}</div>`).join(''); // Create HTML for each item
+  stackElement.innerHTML = stackContent; // Update the stack display
+}
+
     </script>
 </body>
 </html>
