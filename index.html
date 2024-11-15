@@ -11,12 +11,12 @@
         <center><h1>Stack Visualization</h1></center>
     </header>
     <section class="stackSection">
-
-
         <!-- display stack -->
-            <div class="stackdisplay">
-                
-            </div>
+            <table rules="rows">
+                <tr class="stackdisplay">
+
+                </tr>
+            </table>
         <br>
         <!-- operations buttons -->
          <div class="buttonsdiv">
@@ -24,7 +24,6 @@
             <button onclick="push()">Push</button>
             <button onclick="pop()">Pop</button>
             <button onclick="peek()">Peek</button>
-            <!-- <button onclick="display()">Display</button> -->
          </div>
     </section>
     <script>
@@ -61,16 +60,14 @@
             }
             alert("Value at top of stack is: "+stack[stack.length-1]);
         }
-        // function display() {
-        //     console.log(stack);
-        //     stackdisplay();
-        // }
+
         function stackdisplay() {
   let stackElement = document.getElementsByClassName("stackdisplay")[0];
-  let stackContent = stack.map(item => `<p>${item}</p>`).join(''); // Create HTML for each item
-  stackElement.innerHTML = stackContent; // Update the stack display
+  let stackContent = stack.map(item => `<td>${item}</td><br>`).join('');
+  stackElement.innerHTML = stackContent+'<th>TOP</th>';
+  console.log(stackContent);
+  
 }
-
     </script>
 </body>
 </html>
